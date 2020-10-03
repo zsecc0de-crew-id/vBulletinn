@@ -53,4 +53,5 @@ done
 wait
 if [[ ! -f $(cat VULNS.txt) ]]; then
   echo -e "${WHITE}total vuln : "$(wc -l VULNS.txt)
+  exit
 fi
